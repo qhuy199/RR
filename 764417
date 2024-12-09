@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Redirect</title>
+    <script>
+        // Define the forms
+        const forms = [
+            "https://forms.office.com/Pages/ResponsePage.aspx?id=0XHIlzG5xUqIMvlT87UwU5hdXjWyeF9Ni6nqsp9Jqd5UQjFPS0FBQ0hZWkNQS044MjhETVJISUdNSi4u",
+            "https://forms.office.com/Pages/ResponsePage.aspx?id=0XHIlzG5xUqIMvlT87UwU5hdXjWyeF9Ni6nqsp9Jqd5UMktMQzI4TjNUWDRVNDhCUEZZMjNOVzBQVi4u"
+        ];
+
+        // Retrieve the last index from localStorage
+        const lastIndex = parseInt(localStorage.getItem("lastIndex") || "-1", 10);
+
+        // Determine the next form index
+        const nextIndex = (lastIndex + 1) % forms.length;
+
+        // Save the new index back to localStorage
+        localStorage.setItem("lastIndex", nextIndex);
+
+        // Redirect to the selected form
+        window.location.href = forms[nextIndex];
+    </script>
+</head>
+<body>
+    <p>Redirecting to the appropriate form...</p>
+</body>
+</html>
